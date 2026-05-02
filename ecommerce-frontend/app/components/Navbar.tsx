@@ -26,7 +26,17 @@ export function Navbar() {
             </span>
           </a>
 
-          <div className="hidden md:block" />
+            <nav className="hidden md:flex items-center gap-1 ml-4" aria-label="Primary">
+            {Object.entries(navMenu).map(([label, path]) => (
+              <a
+                key={path}
+                href={path}
+                className="px-3 py-2 text-sm font-medium rounded-md transition-colors text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
 
           <div className="ml-auto flex items-center gap-2" />
         </div>
