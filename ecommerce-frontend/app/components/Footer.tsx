@@ -41,9 +41,29 @@ export function Footer() {
                         { label: "Smartwatches", href: "/watches" },
                     ].map((link) => (
                         <li key={link.href}>
-                            <Link to={link.href} className="text-sm text-gray-500 dark:text-zinc-500">
+                            <Link href={link.href} className="text-sm text-gray-500 dark:text-zinc-500">
                                 {link.label}
                             </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className="space-y-4">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">Company</h3>
+                <ul className="space-y-2">
+                    {["About Us", "Careers", "Press", "Blog"].map((item) => (
+                        <li key={item}>
+                            <span className="text-sm text-gray-500 dark:text-zinc-500 cursor-pointer">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className="space-y-4">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">Support</h3>
+                <ul className="space-y-2">
+                    {["Help Center", "Shipping Info", "Returns", "Track Order", "Contact Us"].map((item) => (
+                        <li key={item}>
+                            <span className="text-sm text-gray-500 dark:text-zinc-500 cursor-pointer">{item}</span>
                         </li>
                     ))}
                 </ul>
