@@ -9,15 +9,7 @@ router.get('/', (req, res) => {
   ]);
 });
 
-// GET product by category
-router.get('/category/:categoryName', (req, res) => {
-  const requestedCategory = req.params.categoryName;
-
-  res.json({
-    message: `You asked for ${requestedCategory}s!`,
-    data: [{ id: 1, name: `Fake ${requestedCategory}`, price: 500 }]
-  });
-});
+module.exports = router;
 
 // GET single product by ID
 router.get('/:id', (req, res) => {
@@ -29,15 +21,3 @@ router.get('/:id', (req, res) => {
     price: 750
   });
 });
-
-// ✅ PUT THE POST ROUTE HERE
-router.post('/', (req, res) => {
-  const newProduct = req.body;
-
-  res.status(201).json({
-    message: "Product created successfully",
-    data: newProduct
-  });
-});
-
-module.exports = router;
