@@ -67,6 +67,13 @@ export default function CheckoutPage() {
       </Layout>
     );
   }
+  
+  const handleInputChange = (
+    field: keyof ShippingAddress, value: string) => {
+    setShippingAddress((prev) => ({ ...prev, [field]: value }));
+  };
+
+
   return (
     <Layout>
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-12">
@@ -85,7 +92,13 @@ export default function CheckoutPage() {
                   {/* Map these standard inputs out for Full Name, Email, Address, and Country */}
                   <div>
                     <label className="block text-sm font-medium mb-1">Full Name</label>
-                    <input type="text" required className="w-full px-4 py-2 border rounded-lg bg-white dark:bg-zinc-800" />
+                    <input type="text" 
+                    <input
+                    type="text"
+                    value={shippingAddress.full_name}
+                    onChange={(e) => handleInputChange("full_name", e.target.value)}
+                    required
+                    className="w-full px-4 py-2 border rounded-lg bg-white dark:bg-zinc-800" />
                   </div>
                   
                   {/* Grid for City and Postal Code */}
