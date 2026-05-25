@@ -84,7 +84,30 @@ export default function CheckoutPage() {
              <form className="space-y-6"></form>
           </div>
 
-          {/* Order Summary Container (Right) */}
+            <h2 className="text-xl font-bold mb-6">Order Summary</h2>
+            <div className="space-y-4 mb-6 pb-6 border-b border-gray-200 dark:border-zinc-800">
+              {cartItems.map((item) => (
+                <div key={item.id} className="flex justify-between text-sm">
+                  <span className="text-gray-600 dark:text-zinc-400">{item.product.name} x {item.quantity}</span>
+                  <span className="font-semibold">${(item.product.price * item.quantity).toLocaleString()}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex justify-between text-gray-600 dark:text-zinc-400">
+                <span>Subtotal</span><span>${cartTotal.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between text-gray-600 dark:text-zinc-400">
+                <span>Shipping</span><span>Free</span>
+              </div>
+              <div className="flex justify-between text-gray-600 dark:text-zinc-400">
+                <span>Tax (10%)</span><span>${(cartTotal * 0.1).toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between text-lg font-bold pt-3 border-t border-gray-200 dark:border-zinc-800">
+                <span>Total</span><span>${(cartTotal * 1.1).toLocaleString()}</span>
+              </div>
+            </div>
           <div className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg p-6 h-fit">
           </div>
         </div>
